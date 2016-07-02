@@ -1,0 +1,27 @@
+@import url(https://fonts.googleapis.com/css?family=Expletus+Sans);
+body {
+  background-color: #2E8C03;
+  color: #ffffff;
+  font-family: "Expletus Sans", sans-serif;
+  float: none;
+  max-width: 1200px;
+  margin: 0 auto; }
+
+#carousel {
+  height: 300px;
+  width: 400px;
+  overflow: hidden;
+  top: 50%;
+  left: 50%; }
+  #carousel ul {
+    width: 2000px; }
+  #carousel li {
+    width: 100%;
+    background-size: cover;
+    list-style: none;
+    display: inline; }
+    #carousel li img {
+      height: 300px;
+      width: 400px; }
+
+/*# sourceMappingURL=style.css.map */
