@@ -13,12 +13,13 @@ $(function(){
 
         for (var c = 0; c < k ; c++) {
 
-            var element = $('<button>o</button>');
-
+            var element = $('<button class="btn-primary">o</button>');
             element.on('click', changeSlide.bind(this, c));
+
 
             dots.append(element)
 
+            carouselList.css({marginLeft:-40});
         }
 
     }
@@ -64,21 +65,21 @@ $(function(){
 
     var current = 0;
 
-    function changeSlide() {
+    // function changeSlide() {
 
-        current++;
+    //     current++;
 
-        if (current >= carouselList.children().length-2) {
+    //     if (current >= carouselList.children().length-1) {
 
-            carouselList.animate({marginLeft: '-=400' }, 500, moveFirstSlide);
+    //         carouselList.animate({marginLeft: '-=400' }, 500, moveFirstSlide);
 
-        } else {
+    //     } else {
 
-            carouselList.animate({marginLeft: '-=400' }, 500);
+    //         carouselList.animate({marginLeft: '-=400' }, 500);
 
-        }
+    //     }
 
-    }
+    // }
 
     setInterval(changeSlide, 2000)
 
