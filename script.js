@@ -37,7 +37,7 @@ $(function(){
 
     function changeSlide(selected) {
 
-        if (selected != 'undefined') {
+        if (selected != undefined) {
 
             current = selected;
 
@@ -47,16 +47,15 @@ $(function(){
 
         }
 
-        if (current >= carouselList.children().parent().find('li')) {
+        if (current >= carouselList.find('li').length) {
 
             carouselList.animate({marginLeft: current*offset }, 500, moveFirstSlide);
-
+            current = 0;
         } else {
 
             carouselList.animate({marginLeft: current*offset }, 500);
 
         }
-
     }
 
     console.log(carouselList);
