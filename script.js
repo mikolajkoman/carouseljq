@@ -3,13 +3,15 @@ $(function(){
 
     var carouselList = $("#carousel ul");
     var dots = $(".dots");
+    var prev = $(".glyphicon-chevron-left");
+    var next = $(".glyphicon-chevron-right");
 
     var current = 0,
             offset = -400;
 
     function initDots() {
 
-        var k = carouselList.find('li').length;
+        var k = carouselList.find('li').length-1;
 
         for (var c = 0; c < k ; c++) {
 
@@ -19,21 +21,33 @@ $(function(){
 
             dots.append(element)
 
-            carouselList.css({marginLeft:-40});
         }
 
     }
+    prev.click( function () {
 
-    function moveFirstSlide() {
+        current--;
+        carouselList.css({marginLeft: current*offset });
 
-         current = 0;
+    }) ;
+    next.click( function () {
 
-         var firstItem = carouselList.find("li:first");
-         var lastItem = carouselList.find("li:last");
-         lastItem.after(firstItem)
+        current++;
+        carouselList.css({marginLeft: current*offset });
 
-        carouselList.css({marginLeft:-40});
-    }
+
+    }) ;
+
+    // function moveFirstSlide() {
+
+    //      current = 0;
+
+    //      var firstItem = carouselList.find("li:first");
+    //      var lastItem = carouselList.find("li:last");
+    //      lastItem.after(firstItem)
+
+    //     carouselList.css({marginLeft:-40});
+    // }
 
     function changeSlide(selected) {
 
@@ -47,10 +61,15 @@ $(function(){
 
         }
 
-        if (current >= carouselList.find('li').length) {
+        if (current >= carouselList.find('li').length - 1) {
 
-            carouselList.animate({marginLeft: current*offset }, 500, moveFirstSlide);
-            current = 0;
+            carouselList.animate({marginLeft: current*offset }, 500, function() {
+
+              current = 0;
+              carouselList.css({marginLeft: current*offset });
+
+            });
+
         } else {
 
             carouselList.animate({marginLeft: current*offset }, 500);
@@ -58,7 +77,13 @@ $(function(){
         }
     }
 
+
+
+            current = 0;
     console.log(carouselList);
+
+    
+    
 
     initDots();
 
@@ -79,7 +104,6 @@ $(function(){
     //     }
 
     // }
-
     setInterval(changeSlide, 2000)
 
 
