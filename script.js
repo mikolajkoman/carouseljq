@@ -24,23 +24,25 @@ $(function(){
         }
 
     }
+    
     prev.click( function () {
 
         current--;
-        carouselList.css({marginLeft: current*offset });
         if (current < 0){
-            current = carouselList.find('li').length-1;
+            current = carouselList.find('li').length-2;
         }
+
+        carouselList.css({marginLeft: current*offset });
 
     }) ;
     next.click( function () {
 
         current++;
-        carouselList.css({marginLeft: current*offset });
         if (current == carouselList.find('li').length-1){
             current = 0;
         }
 
+        carouselList.css({marginLeft: current*offset });
 
     }) ;
 
