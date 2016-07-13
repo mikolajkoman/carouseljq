@@ -28,12 +28,18 @@ $(function(){
 
         current--;
         carouselList.css({marginLeft: current*offset });
+        if (current < 0){
+            current = carouselList.find('li').length-1;
+        }
 
     }) ;
     next.click( function () {
 
         current++;
         carouselList.css({marginLeft: current*offset });
+        if (current == carouselList.find('li').length-1){
+            current = 0;
+        }
 
 
     }) ;
